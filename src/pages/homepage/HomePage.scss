@@ -3,3 +3,33 @@
     z-index: -1;
 
 }
+
+.hero{
+    &__main{
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    &__container{
+        padding:1rem;
+    }
+    &__heroimg{
+        width:100%;
+        height:auto;
+    }
+
+    &__img{
+        width:5rem;
+    }
+
+    &__author{
+        font-size: 0.7rem;
+    }
+}
+
+.articles{
+    display: flex;
+
+}

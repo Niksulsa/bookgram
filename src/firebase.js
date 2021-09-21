@@ -1,10 +1,10 @@
 //import { initializeApp } from "firebase/app";
 import firebase from 'firebase';
 //import firebase from 'firebase/app';
-//import 'firebase/auth';
+import 'firebase/auth';
 //import 'firebase/firestore';
 
-const firebaseApp=firebase.initializeApp({
+const firebaseConfig=firebase.initializeApp({
     apiKey: "AIzaSyCZljDCmeIPwTaOX1DRVuUQGtHfAOFo8mU",
   authDomain: "bookgram-d5394.firebaseapp.com",
   projectId: "bookgram-d5394",
@@ -15,9 +15,26 @@ const firebaseApp=firebase.initializeApp({
   measurementId: "G-B03PCWZ6F4"
 })
 
-const db =firebaseApp.firestore();
-const auth=firebase.auth();
-const storage=firebase.storage();
+const db =firebaseConfig.firestore();
+//const auth=firebase.auth();
+//const storage=firebase.storage();
 
-export {db,auth,storage};
+// import React, { Component } from 'react'
+
+// export default class firebase{
+//   constructor(){
+    
+//   }
+//   render() {
+//     return (
+//       <div>
+        
+//       </div>
+//     )
+//   }
+// }
+
+
+export {db};
+export default firebaseConfig;
 

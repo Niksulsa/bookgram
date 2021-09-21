@@ -1,6 +1,6 @@
 import './App.scss';
-import React,{useState, useEffect} from 'react';
-import { BrowserRouter as Router, Route,Switch} from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SignUp from './pages/signup/SignUp';
 import HomePage from './pages/homepage/HomePage';
 import LoginPage from './pages/login/LoginPage';
@@ -12,9 +12,12 @@ function App() {
         <Router>
             <Header/>
             <Switch>
-                <Route path="/login" component={LoginPage}/>
-                <Route path="/" exact component={HomePage}/>
-                <Route path="/signup" exact component={SignUp}/>
+                <Route path="/login" exact
+                    component={LoginPage}/>
+                <Route path="/home"
+                    component={HomePage}/>
+                <Route path="/signup" exact
+                    component={SignUp}/>
             </Switch>
         </Router>
     );

@@ -1,53 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import './SignUp.scss';
-import { auth } from '../../firebase';
-export default function SignUp() {
-    const [username, setUsername] =useState('');
-    const [password, setPassword]=useState('');
-    const [email, setEmail]=useState('');
-    const [user,setUser]=useState('');
+//import { auth } from '../../firebase';
+import firebaseConfig from '../../firebase';
 
-    const signUp=(event)=>{
-        event.preventDefault();
-        auth.createUserWithEmailAndPassword(email,password)
-        .catch((error)=> alert(error.message))
 
+const SignUp = () => {
+    const [currentUser, setCurrentUser] = useState(null); 
+ 
+    const handleSubmit = (e) => {
+      e.preventDefault();    
+      const { email, password } = e.target.elements;
+      try {
+        firebaseConfig.auth().createUserWithEmailAndPassword(email.value, password.value);      
+        setCurrentUser(true);
+      } catch (error) {
+        alert(error);
+      }
+    };
+    if (currentUser) {
+        return <Redirect to="/login" />;
     }
-    useEffect(()=>{
-        const unsubscribe=auth.onAuthStateChanged((authUser)=>{
-            if(authUser){
-                //user logged in
-                setUser(authUser)
-                // if(authUser.displayName){
-                //     //dont update the username
-                // }else{
-
-                //     return authUser.updateProfile({
-                //         displayName:username,
-                //     })
-                // }
-            }else{
-                //user logged out
-                setUser(null)
-            }
-        })
-        return()=>{
-            unsubscribe()
-        }
-    },[user, username])
 
     return (
         <div>
             <div className="signup">
-                <form className="signup__form">
+                <form  onSubmit={handleSubmit} className="signup__form">
                     <h1 className="signup__heading">
                         Sign Up</h1>
-                    <input onChange={(e)=>setUsername(e.target.value)} className="signup__input" type="text" name="username" placeholder="Username"></input>
-                    <input onChange={(e)=>setEmail(e.target.value)} className="signup__input" type="text" name="email" placeholder="Email"></input>
-                    <input onChange={(e)=>setPassword(e.target.value)} className="signup__input" type="password" name="password" placeholder="Password"></input>
+                    <input className="signup__input" type="text" name="username" placeholder="Username"></input>
+                    <input className="signup__input" type="text" name="email" placeholder="Email"></input>
+                    <input className="signup__input" type="password" name="password" placeholder="Password"></input>
                     <div className="signup__buttonbox">
-                      <button type="submit" onClick={signUp} className="signup__button">Sign Up</button>
+                      <button type="submit" className="signup__button">Sign Up</button>
                     </div>
                 </form>
                 <p>
@@ -59,3 +44,5 @@ export default function SignUp() {
         </div>
     )
 }
+
+export default SignUp
