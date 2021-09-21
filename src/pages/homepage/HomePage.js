@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useContext } from "react";
 import { AuthContext } from "../../Auth";
 import firebaseConfig from "../../firebase";
+import Hero from '../../assets/hero/hero.jpg'
 //const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
 
@@ -38,8 +39,8 @@ export default function HomePage() {
     return (
         <div class="page">  
             <div className="hero">
-                <div>
-                    <img className="hero__heroimg" src="https://cdn.dribbble.com/users/3470483/screenshots/11306884/media/01dfa93b401427b712b0719478146348.jpg?compress=1&resize=1000x750" alt=""/>
+                <div className="hero__herocontainer">
+                    <img className="hero__heroimg" src={Hero} alt=""/>
                 </div>
                 <h2 className="hero__heading">Recommended Books</h2>
                 <div className="hero__main">

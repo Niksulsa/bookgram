@@ -2,7 +2,8 @@
 import firebase from 'firebase';
 //import firebase from 'firebase/app';
 import 'firebase/auth';
-//import 'firebase/firestore';
+import 'firebase/firestore';
+import 'firebase/storage'
 
 const firebaseConfig=firebase.initializeApp({
     apiKey: "AIzaSyCZljDCmeIPwTaOX1DRVuUQGtHfAOFo8mU",
@@ -16,25 +17,11 @@ const firebaseConfig=firebase.initializeApp({
 })
 
 const db =firebaseConfig.firestore();
-//const auth=firebase.auth();
-//const storage=firebase.storage();
-
-// import React, { Component } from 'react'
-
-// export default class firebase{
-//   constructor(){
-    
-//   }
-//   render() {
-//     return (
-//       <div>
-        
-//       </div>
-//     )
-//   }
-// }
+const auth=firebase.auth();
+const storage=firebase.storage();
 
 
-export {db};
+
+export {db,auth,storage};
 export default firebaseConfig;
 

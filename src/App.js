@@ -5,6 +5,7 @@ import SignUp from './pages/signup/SignUp';
 import HomePage from './pages/homepage/HomePage';
 import LoginPage from './pages/login/LoginPage';
 import Header from './components/header/Header'
+import Description from './components/description/Description';
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
                     component={HomePage}/>
                 <Route path="/signup" exact
                     component={SignUp}/>
+                <Route path="/description" exact
+                    component={Description} />    
             </Switch>
         </Router>
     );

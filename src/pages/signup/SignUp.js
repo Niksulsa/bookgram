@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {Link, Redirect} from "react-router-dom";
 import './SignUp.scss';
 //import { auth } from '../../firebase';
 import firebaseConfig from '../../firebase';
 
 
-const SignUp = () => {
+function SignUp(){
     const [currentUser, setCurrentUser] = useState(null); 
  
     const handleSubmit = (e) => {
@@ -29,8 +29,8 @@ const SignUp = () => {
                     <h1 className="signup__heading">
                         Sign Up</h1>
                     <input className="signup__input" type="text" name="username" placeholder="Username"></input>
-                    <input className="signup__input" type="text" name="email" placeholder="Email"></input>
-                    <input className="signup__input" type="password" name="password" placeholder="Password"></input>
+                    <input className="signup__input" type="email"  name="email" placeholder="Email"></input>
+                    <input className="signup__input" type="password"   name="password" placeholder="Password"></input>
                     <div className="signup__buttonbox">
                       <button type="submit" className="signup__button">Sign Up</button>
                     </div>

@@ -1,0 +1,19 @@
+.search{
+    background-image: url('../../assets/background/girl.png') ;
+    height:100vh;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: lighten;
+    background-size: contain;
+
+    &__video{
+        position: absolute;
+        object-fit: cover;
+        z-index: -1;
+        height:100vh;
+        width:100%;
+        top:0;
+
+    };
+}
