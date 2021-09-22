@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap');
 .header{
     display: flex;
     align-items: center;
@@ -12,10 +13,11 @@
 
     &__button{
         width:100%;
-        background-color: rgb(242, 188, 242);
+        background-color: #cfcbe6;
         border:none;
         border-radius: 1rem;
-        height:2rem
+        height:2rem;
+        font-family: 'Nunito Sans', sans-serif;
 
     }
 }
