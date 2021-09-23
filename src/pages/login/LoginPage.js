@@ -1,34 +1,45 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './LoginPage.scss';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { AuthContext } from "../../Auth";
 import firebaseConfig from "../../firebase";
 
 const LoginPage = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+  const history = useHistory()
+  const handleFormDataInput = e => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = e.target.elements;
-    console.log(e.target.elements)
+    const {email, password} = formData
+    console.log(email)
+    console.log(password)
     try {
-      firebaseConfig.auth().signInWithEmailAndPassword(email.value, password.value);
+      await firebaseConfig.auth().signInWithEmailAndPassword(email, password);
+      history.push('/home')
     } catch (error) {
       alert(error);
     }
   };
-  const currentUser = useContext(AuthContext);
-  if (currentUser) {
-    return <Redirect to="/home" />;
-  }
+  // const currentUser = useContext(AuthContext);
+  // if (currentUser) {
+  //   return <Redirect to="/home" />;
+  // }
     return (
         <div>
             <div className="signin">
                 <form onSubmit={handleSubmit} className="signin__form">
                     <h1 className="signin__heading">
                         Sign In</h1>
-                    <input  className="signin__input" type="text" name="email" placeholder="Email"></input>
-                    <input  className="signin__input" type="password" name="password" placeholder="Password"></input>
+                    <input onChange={handleFormDataInput} className="signin__input" type="text" name="email" placeholder="Email"></input>
+                    <input onChange={handleFormDataInput} className="signin__input" type="password" name="password" placeholder="Password"></input>
                     <div className="signin__buttonbox">
                         <button type="submit" className="signin__button">Sign In</button>
                     </div>

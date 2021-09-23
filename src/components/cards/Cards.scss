@@ -142,7 +142,6 @@
     }
 
     &__overlay{
-        position: absolute;
         background-color: rgb(240, 235, 242);
         overflow: hidden;
         bottom:0px;
@@ -154,10 +153,6 @@
         //  transform: translateY(100%);
         // transition: .2s ease-in-out;
 
-      &:hover{
-        transform: translateY(-50px);
-          display:block; 
-      }
   }
   &__caption{
     transition: transform 250ms;
@@ -170,3 +165,6 @@
 
 
   }
+.post{
+  background-color: whitesmoke;
+}

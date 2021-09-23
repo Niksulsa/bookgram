@@ -1,10 +1,8 @@
 import React from 'react'
 import {useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-import Video from './Description.scss';
-import Hero from '../../assets/video/hero-video.mp4'
-//import StarRatings from './react-star-ratings';
+import './Description.scss';
+
 
 export default function Description() {
     const [books, setbooks] = useState("");
@@ -13,20 +11,17 @@ export default function Description() {
     function handleChange(event) {
         const books = event.target.value
         setbooks(books);
-    }
+    }    
     function handleSubmit(event) {
         event.preventDefault();
         
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${books}`).then(data => { console.log(data.data.items);// console.log(data.data.items)
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${books}`)
+        .then(data => { 
             setResults(data.data.items)
 
         })
 
     }
-
-    const Star = ({ selected = false, onClick = f => f }) => (
-        <div className={selected ? "star selected" : "star"} onClick={onClick} />
-      );
       
 
     return (
@@ -100,7 +95,6 @@ export default function Description() {
                                 </a>
                             </div>
                         </div>
-
 
                     </div>
                 ))

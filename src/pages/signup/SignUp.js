@@ -1,18 +1,25 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import './SignUp.scss';
 //import { auth } from '../../firebase';
 import firebaseConfig from '../../firebase';
-
+import {db} from '../../firebase.js';
 
 function SignUp(){
     const [currentUser, setCurrentUser] = useState(null); 
  
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();    
-      const { email, password } = e.target.elements;
+      const { username ,email, password } = e.target.elements;
+      let ref = db.collection("users").doc(currentUser.email)
       try {
-        firebaseConfig.auth().createUserWithEmailAndPassword(email.value, password.value);      
+        const user = await firebaseConfig.auth().createUserWithEmailAndPassword(email.value, password.value);      
+        await ref.set({
+          username,
+          email,
+          posts:[],
+          user_id: user.user.uid
+        })
         setCurrentUser(true);
       } catch (error) {
         alert(error);
