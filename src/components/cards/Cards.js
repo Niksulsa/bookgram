@@ -17,11 +17,7 @@ export default function Cards({
     useEffect(() => {
         let unsubscribe;
         if (postId) {
-            unsubscribe = db.collection("posts")
-            .doc(postId)
-            .collection("comments")
-            .orderBy("timestamp", 'desc')
-            .onSnapshot((snapshot) => {
+            unsubscribe = db.collection("posts").doc(postId).collection("comments").orderBy("timestamp", 'desc').onSnapshot((snapshot) => {
                 setComments(snapshot.docs.map((doc) => doc.data()))
             })
         }
@@ -33,59 +29,62 @@ export default function Cards({
     const postComment = (event) => {
         event.preventDefault();
         db.collection("posts").doc(postId).collection("comments").add({
-            text:comment,
+            text: comment,
             // username:username.displayName,
-            timestamp:firebase.firestore.FieldValue.serverTimestamp()
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         setComments('');
 
     }
 
     return (
-        <div className="">
-            <div>
-                <img src={imageUrl}
-                    className="card__image"
-                    alt=""/>
-                <div className="card__overlay">
-                    <div className="card__header">
-                        <Avatar className="card__avatar"
+        <div className="cards">
+            <div className="cards__outerbox">
+                <div className="cards__container">
+                    <div className="cards__userbox">
+                        <Avatar className="cards__avatar"
                             alt={imagealt}
                             src="/static/images/avatar/3.jpg"/>
-                        <div className="card__header-text">
-                            <h3 className="card__title">
+                        <div className="cards__headerbox">
+                            <h3 className="cards__title">
                                 {username}</h3>
-                            <span className="card__status">1 hour ago</span>
                         </div>
                     </div>
-                    <div>
-                    <p className="card__caption">
-                        {caption}</p>
-
+                    <div className="cards__heroimg">
+                        <img src={imageUrl}
+                            className="cards__image"
+                            alt=""/>
                     </div>
-                    <div>
-                        {comments.map((comment)=>(
-                            <div>
+                    <div className="cards__captionbox">
+                        <p className="card__caption">
+                            {caption}</p>
+                    </div>
+                    <div className="cards__comments"> {
+                        comments.map((comment) => (
+                            <div className="cards__username">
                                 {/* <b>{comment.username}</b> */}
-                                <p>{comment.text}</p>
+                                <p classname="cards__text">
+                                    {
+                                    comment.text
+                                }</p>
                             </div>
-                        ))}
+                        ))
+                    } </div>
+                    <div className="cards__formbox">
+                        <form className="cards__form">
+                            <input className="cards__input" type="text" placeholder="Add a comment"
+                                value={comment}
+                                onChange={
+                                    (e) => setComment(e.target.value)
+                                }/>
+                            <button className="cards__button"
+                                disabled={
+                                    !comment
+                                }
+                                type="submit"
+                                onClick={postComment}>Comment</button>
+                        </form>
                     </div>
-                </div>
-                <div>
-                    <form>
-                        <input className="" type="text" placeholder="Add a comment"
-                            value={comment}
-                            onChange={
-                                (e) => setComment(e.target.value)
-                            }/>
-                        <button className=""
-                            disabled={
-                                !comment
-                            }
-                            type="submit"
-                            onClick={postComment}>Comment</button>
-                    </form>
                 </div>
             </div>
         </div>

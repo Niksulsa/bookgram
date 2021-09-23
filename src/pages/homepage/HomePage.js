@@ -70,21 +70,22 @@ export default function HomePage() {
                 <div className="hero__herocontainer">
                     <div>
                         <h1>Welcome</h1>
-                        {username}
-                        {
-                        quotes.slice(0, 1).map((quote) => {
-                            return (
-                                <div>
-                                    <div>{
-                                        quote.text
-                                    }</div>
-                                    <p>-{
-                                        quote.author
-                                    }</p>
-                                </div>
-                            )
-                        })
-                    } </div>
+                        <h2>Nikhitha</h2>
+                        <div> {
+                            quotes.slice(0, 1).map((quote) => {
+                                return (
+                                    <div>
+                                        <div>{
+                                            quote.text
+                                        }</div>
+                                        <p>-{
+                                            quote.author
+                                        }</p>
+                                    </div>
+                                )
+                            })
+                        } </div>
+                    </div>
                     <img className="hero__heroimg"
                         src={Hero}
                         alt=""/>
@@ -92,11 +93,10 @@ export default function HomePage() {
                 <h2 className="hero__heading">Recommended Books</h2>
                 <div className="hero__main">
                     {
-                    books.slice(0,8).map((book) => {
+                    books.slice(0, 8).map((book) => {
                         const {id, author, book_image, title} = book
                         return (
-                            <article
-                                className="hero__container">
+                            <article className="hero__container">
                                 <div className="hero__imgbox">
                                     <img className="hero__img"
                                         src={book_image}
@@ -111,13 +111,15 @@ export default function HomePage() {
             </div>
             <div className="">
                 <div class="file">
-                    <ImageUpload />
+                    <ImageUpload/>
                 </div>
                 <div className="articles">
                     {
                     posts.map(({id, post}) => (
-                        <Cards key={id}
-                        postId={id}
+                        <Cards  key={id}
+                            postId={id}
+                            user={user}
+                            //signed in user
                             username={
                                 post.username
                             }

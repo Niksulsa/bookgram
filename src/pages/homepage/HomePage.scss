@@ -18,7 +18,7 @@
         padding:1rem;
     }
     &__herocontainer{
-        height:80vh;
+        height:auto;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -26,7 +26,7 @@
     }
     &__heroimg{
         width:70%;
-        height:90%;
+        height:35rem;
     }
 
     &__heading{
@@ -46,6 +46,7 @@
 
 .articles{
     display: flex;
+    flex-wrap: wrap;
 
 }
 
