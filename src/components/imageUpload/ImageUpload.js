@@ -1,12 +1,13 @@
-import {imageListClasses} from '@mui/material';
+//import {imageListClasses} from '@mui/material';
 import React, {useState} from 'react';
-import {storage, db} from '../../firebase';
-import './ImageUpload.scss'
+import {storage, db, auth} from '../../firebase';
+import './ImageUpload.scss';
 
 export default function ImageUpload({username}) {
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0);
     const [caption, setCaption] = useState('');
+    console.log("authentication",auth.currentUser)
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -26,7 +27,8 @@ export default function ImageUpload({username}) {
             storage.ref("images").child(image.name).getDownloadURL().then(url => {
                 db.collection("posts").add({ //    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     caption: caption,
-                    imageUrl: url
+                    imageUrl: url,
+                    user_id:auth.currentUser.uid
 
                 })
                 setProgress(0);

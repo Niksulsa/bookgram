@@ -15,32 +15,51 @@ export default function HomePage() {
     const [books, setBooks] = useState([]);
     const [quotes, setQuotes] = useState([]);
     const [username, setUsername] = useState(null);
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [dataUser, setdataUser]= useState(null);
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                console.log(authUser)
                 setUser(authUser);
                 if (authUser.displayName) {} else {
                     return authUser.updateProfile({displayName: username})
                 }
+                console.log("authuser",authUser)
 
             } else {
                 setUser(null)
             }
-        })
+        }) 
+        fetchData();
         return() => {
             unsubscribe()
         }
     }, [user, username]);
 
-
-    // Runs a code based on condition
+    const fetchData  = () => {
+        if (user) {
+           db.collection('users').where('user_id', '==', user.uid).get()
+            .then(snapshot => {
+                console.log("snapshot", snapshot)
+              snapshot.forEach(doc => {
+                  console.log("docData",doc.data())
+                setdataUser(doc.data())
+              })
+            }).catch(err => {
+              console.log(err)
+            })
+        }
+      }
+   
 
     useEffect(() => {
         db.collection('posts').onSnapshot(snapshot => {
-            setPosts(snapshot.docs.map(doc => ({id: doc.id, post: doc.data()})))
+            setPosts(snapshot.docs.map(postDoc => {
+                const postData={id: postDoc.id, post: postDoc.data()}
+                return postData
+            }))
         })
         // happens whenever a post is posted and snapshot is taken
         // authListener()
@@ -64,13 +83,19 @@ export default function HomePage() {
     }, [])
 
     console.log(user)
+    if(!user || !dataUser ){
+        return <p>Loading...</p>
+    }
+
+    
+
     return (
         <div className="page">
             <div className="hero">
                 <div className="hero__herocontainer">
                     <div>
                         <h1>Welcome</h1>
-                        <h2>Nikhitha</h2>
+                        <h2>{dataUser.username}</h2>
                         <div> {
                             quotes.slice(0, 1).map((quote) => {
                                 return (
@@ -110,19 +135,17 @@ export default function HomePage() {
 
             </div>
             <div className="">
-                <div class="file">
-                    <ImageUpload/>
+                <div className="file">
+                    <ImageUpload />
                 </div>
                 <div className="articles">
                     {
                     posts.map(({id, post}) => (
                         <Cards  key={id}
                             postId={id}
-                            user={user}
-                            //signed in user
-                            username={
-                                post.username
-                            }
+                
+                            userId={post.user_id}
+                            userComment={post.user_id}
                             caption={
                                 post.caption
                             }

@@ -1,9 +1,7 @@
 import React,{useState} from 'react';
 import './LoginPage.scss';
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import { AuthContext } from "../../Auth";
+import { useHistory } from "react-router-dom";
 import firebaseConfig from "../../firebase";
 
 const LoginPage = () => {
