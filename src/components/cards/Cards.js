@@ -3,9 +3,12 @@ import './Cards.scss';
 import Avatar from '@mui/material/Avatar'
 import {db} from '../../firebase';
 import firebase from 'firebase';
-import { AuthContext } from '../../Auth';
+import {AuthContext} from '../../Auth';
+import {FacebookIcon} from "react-share";
+import {FacebookShareButton} from "react-share";
 
-export default function Cards({postId,
+export default function Cards({
+    postId,
     userId,
     caption,
     imageUrl,
@@ -13,14 +16,12 @@ export default function Cards({postId,
 }) {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
-    const [username,setUsername]= useState("")
+    const [username, setUsername] = useState("")
 
     useEffect(() => {
         let unsubscribe;
         if (postId) {
-            unsubscribe = db.collection("posts").doc(postId)
-            .collection("comments").orderBy("timestamp", 'desc')
-            .onSnapshot((snapshot) => {
+            unsubscribe = db.collection("posts").doc(postId).collection("comments").orderBy("timestamp", 'desc').onSnapshot((snapshot) => {
                 setComments(snapshot.docs.map((doc) => doc.data()))
             })
         }
@@ -29,27 +30,20 @@ export default function Cards({postId,
         }
     }, [postId]);
 
-    useEffect(()=>{
-        db.collection('users').orderBy("timestamp", 'desc')
-        .where('user_id', '==', userId)
-        .get()
-        .then(snapshot => {
-        snapshot.forEach(userDoc => {
-            setUsername(userDoc.data().username)
-        })
+    useEffect(() => {
+        db.collection('users').orderBy("timestamp", 'desc').where('user_id', '==', userId).get().then(snapshot => {
+            snapshot.forEach(userDoc => {
+                setUsername(userDoc.data().username)
+            })
         }).catch(err => {
-        console.log(err)
+            console.log(err)
         })
 
-    },[userId])
+    }, [userId])
 
     const postComment = (event) => {
         event.preventDefault();
-        db.collection("posts").doc(postId).collection("comments").add({
-            text: comment,
-            username:username,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        });
+        db.collection("posts").doc(postId).collection("comments").add({text: comment, username: username, timestamp: firebase.firestore.FieldValue.serverTimestamp()});
         setComments('');
 
     }
@@ -59,12 +53,23 @@ export default function Cards({postId,
             <div className="cards__outerbox">
                 <div className="cards__container">
                     <div className="cards__userbox">
-                        <Avatar className="cards__avatar"
-                            alt={imagealt}
-                            src="/static/images/avatar/3.jpg"/>
-                        <div className="cards__headerbox">
-                            <h3 className="cards__title">
-                                {username}</h3> 
+                        <div className="cards__avataruserbox">
+                            <Avatar className="cards__avatar"
+                                alt={imagealt}
+                                src="/static/images/avatar/3.jpg"/>
+                            <div className="cards__headerbox">
+                                <h3 className="cards__title">
+                                    {username}</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="cards__facebookbox">
+                                <FacebookShareButton url={"https://peing.net/ja/"}
+                                    className="cards__facebook">
+                                    <FacebookIcon size={25}
+                                        round/>
+                                </FacebookShareButton>
+                            </div>
                         </div>
                     </div>
                     <div className="cards__heroimg">
@@ -72,14 +77,19 @@ export default function Cards({postId,
                             className="cards__image"
                             alt=""/>
                     </div>
+
                     <div className="cards__captionbox">
                         <p className="card__caption">
                             {caption}</p>
                     </div>
-                    <div className="cards__comments"> {
+                    <div className="cards__comments">
+                        {
                         comments.map((comment) => (
                             <div className="cards__username">
-                                <p className="cards__name">{comment.username}</p>
+                                <p className="cards__name">
+                                    {
+                                    comment.username
+                                }</p>
                                 <p classname="cards__text">
                                     {
                                     comment.text
@@ -107,4 +117,3 @@ export default function Cards({postId,
         </div>
     )
 }
-

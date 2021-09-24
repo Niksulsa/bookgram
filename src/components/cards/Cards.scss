@@ -64,5 +64,13 @@
     margin-left:0.5rem ;
   }
 
+  &__userbox{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__facebookbox{
+    padding: 0.3rem;
+  }
+
 
 }
