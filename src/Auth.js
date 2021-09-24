@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import firebaseConfig from "./firebase";
+import firebaseConfig, { db } from "./firebase";
+import firebase from 'firebase';
 
 export const AuthContext = React.createContext();
 
@@ -15,6 +16,7 @@ export const AuthProvider = ({ children }) => {
   if (loading) {
     return <p>Loading...</p>;
   }
+
   return (
     <AuthContext.Provider value={{currentUser}}>
       {children}

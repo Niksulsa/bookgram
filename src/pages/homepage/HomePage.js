@@ -8,7 +8,9 @@ import "firebase/auth";
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
 // const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
-
+const url = "https://type.fit/api/quotes"
+let data;
+const randomNo = () => Math.floor(Math.random() * data.length) + 1;
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
@@ -16,7 +18,7 @@ export default function HomePage() {
     const [quotes, setQuotes] = useState([]);
     const [username, setUsername] = useState(null);
     const [user, setUser] = useState(null);
-    const [dataUser, setdataUser]= useState(null);
+    const [dataUser, setdataUser] = useState(null);
 
 
     useEffect(() => {
@@ -26,43 +28,43 @@ export default function HomePage() {
                 if (authUser.displayName) {} else {
                     return authUser.updateProfile({displayName: username})
                 }
-                console.log("authuser",authUser)
+                console.log("authuser", authUser)
 
             } else {
                 setUser(null)
             }
-        }) 
+        })
         fetchData();
         return() => {
             unsubscribe()
         }
     }, [user, username]);
 
-    const fetchData  = () => {
+    const fetchData = () => {
         if (user) {
-           db.collection('users').where('user_id', '==', user.uid).get()
-            .then(snapshot => {
+            db.collection('users').where('user_id', '==', user.uid).get().then(snapshot => {
                 console.log("snapshot", snapshot)
-              snapshot.forEach(doc => {
-                  console.log("docData",doc.data())
-                setdataUser(doc.data())
-              })
+                snapshot.forEach(doc => {
+                    console.log("docData", doc.data())
+                    setdataUser(doc.data())
+                })
             }).catch(err => {
-              console.log(err)
+                console.log(err)
             })
         }
-      }
-   
+    }
+
 
     useEffect(() => {
         db.collection('posts').onSnapshot(snapshot => {
             setPosts(snapshot.docs.map(postDoc => {
-                const postData={id: postDoc.id, post: postDoc.data()}
+                const postData = {
+                    id: postDoc.id,
+                    post: postDoc.data()
+                }
                 return postData
             }))
         })
-        // happens whenever a post is posted and snapshot is taken
-        // authListener()
     }, [])
 
     useEffect(() => {
@@ -75,60 +77,75 @@ export default function HomePage() {
     }, []);
 
     useEffect(() => {
-        fetch("https://type.fit/api/quotes").then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            setQuotes(data);
-        });
+        getQuotes();
     }, [])
 
-    console.log(user)
-    if(!user || !dataUser ){
-        return <p>Loading...</p>
+    async function getQuotes() {
+        try {
+            const res = await fetch(url);
+            data = await res.json();
+            setQuotes(data[randomNo()]);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    
+
+    console.log(user)
+    if (!user || !dataUser) {
+        return <p>Loading...</p>
+    }
 
     return (
         <div className="page">
             <div className="hero">
                 <div className="hero__herocontainer">
-                    <div>
-                        <h1>Welcome</h1>
-                        <h2>{dataUser.username}</h2>
-                        <div> {
-                            quotes.slice(0, 1).map((quote) => {
-                                return (
-                                    <div>
-                                        <div>{
-                                            quote.text
-                                        }</div>
-                                        <p>-{
-                                            quote.author
-                                        }</p>
-                                    </div>
-                                )
-                            })
-                        } </div>
+                    <div className="hero__herotext">
+                        <h1 className="hero__welcome">Welcome</h1>
+                        <h2 className="hero__username">{
+                            dataUser.username
+                        }</h2>
+                        <div className="quotes"> 
+                            <p className="quotes__text">
+                                {
+                                quotes.text
+                            }</p>
+                            <p className="quotes__author">- {
+                                quotes.author ? quotes.author : "Anonymous"
+                            }</p>
+                            <button className="quotes__button"
+                                onClick={getQuotes}>
+                                Quote of the day
+                            </button>
+
+                        </div>
                     </div>
                     <img className="hero__heroimg"
                         src={Hero}
                         alt=""/>
                 </div>
-                <h2 className="hero__heading">Recommended Books</h2>
+                <h2 className="hero__heading">BESTSELLERS</h2>
                 <div className="hero__main">
                     {
                     books.slice(0, 8).map((book) => {
-                        const {id, author, book_image, title} = book
+                        const {
+                            id,
+                            author,
+                            book_image,
+                            amazon_product_url,
+                            title
+                        } = book
                         return (
-                            <article className="hero__container">
+                            <a href={amazon_product_url}
+                                className="hero__container">
                                 <div className="hero__imgbox">
                                     <img className="hero__img"
                                         src={book_image}
                                         alt={title}/>
                                 </div>
-                                <p className="hero__author">by {author}</p>
-                            </article>
+                                <p className="hero__author">
+                                    {author}</p>
+                            </a>
                         )
                     })
                 } </div>
@@ -136,16 +153,17 @@ export default function HomePage() {
             </div>
             <div className="">
                 <div className="file">
-                    <ImageUpload />
+                    <ImageUpload/>
                 </div>
                 <div className="articles">
                     {
                     posts.map(({id, post}) => (
-                        <Cards  key={id}
+                        <Cards key={id}
                             postId={id}
-                
-                            userId={post.user_id}
-                            userComment={post.user_id}
+                            userId={
+                                post.user_id
+                            }
+                            // userComment={post.user_id}
                             caption={
                                 post.caption
                             }

@@ -2,7 +2,7 @@ import React from 'react';
 import'./Header.scss';
 import Logo from '../../assets/logo/logo-op.png';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase';
+// import { auth } from '../../firebase';
 
 
 export default function Header() {
@@ -18,7 +18,7 @@ export default function Header() {
                       <button className="header__button">More Books</button> 
                     </Link> 
                     <Link to='/login'>
-                    <button  className="header__buttonsignout"onClick={()=>auth.signOut()}>Signout</button>
+                    <button  className="header__buttonsignout">Signout</button>
                     </Link>  
                 </div>
 

@@ -82,15 +82,15 @@ export default function Description() {
                         </div>
 
                         <div className="button">
-                            <div>
-                                <button>ADD TO READ</button>
-                                <button>READ</button>
+                            <div className="button__category">
+                                <button className="button__addtoread">ADD TO READ</button>
+                                <button className="button__addtoread">READ</button>
                             </div>
-                            <div>
+                            <div className="button__googlebox">
                                 <a href={
                                     book.volumeInfo.infoLink
                                 }>
-                                    <button>
+                                    <button className="button__googlebutton">
                                         GoogleLink</button>
                                 </a>
                             </div>

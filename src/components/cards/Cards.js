@@ -3,6 +3,7 @@ import './Cards.scss';
 import Avatar from '@mui/material/Avatar'
 import {db} from '../../firebase';
 import firebase from 'firebase';
+import { AuthContext } from '../../Auth';
 
 export default function Cards({postId,
     userId,
@@ -106,3 +107,4 @@ export default function Cards({postId,
         </div>
     )
 }
+
