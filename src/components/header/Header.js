@@ -1,7 +1,9 @@
 import React from 'react';
 import'./Header.scss';
-import Logo from '../../assets/logo/logo-op.png';
+import Logo from '../../assets/logo/logo-op-preview.png';
 import { Link } from 'react-router-dom';
+import Book from '../../assets/logo/book.png';
+import Search from '../../assets/logo/search.png';
 // import { auth } from '../../firebase';
 
 
@@ -14,19 +16,18 @@ export default function Header() {
                 <img  className="header__logo" src={Logo} alt=""/>
                 </Link>
                 <div className="header__buttonbox">
-                    <Link to='/profile'>
-                    <a className="header__mybooks"> My Books</a>
-                    </Link>
                     <Link to='/description'>
-                      <a className="header__more">More Books</a> 
+                      <img src={Search} className="header__more" /> 
+                      {/* <span>SEARCH</span> */}
                     </Link> 
-                    <Link to='/login'>
+                    <Link to='/profile'>
+                    <img src={Book} className="header__mybooks"/>
+                    </Link>
+                    <Link className="signout" to='/login'>
                     <button  className="header__buttonsignout">Signout</button>
                     </Link>  
                 </div>
-
-            </header>
-                
+            </header>         
         </div>
     )
 }

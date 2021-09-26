@@ -2,45 +2,57 @@
 .header {
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .header__buttonbox {
   display: flex;
+  align-content: center;
   justify-content: space-evenly;
-  width: 60%;
+  width: 48%;
 }
 .header__logo {
   width: 30%;
 }
 .header__mybooks {
-  width: 10rem;
+  width: 2.56rem;
   border: none;
-  height: 2.5rem;
-  margin-right: 0.5rem;
   font-size: 0.9rem;
+  background-color: #cfcbe6;
+  border-radius: 1.5rem;
   font-family: "Nunito Sans", sans-serif;
 }
 .header__mybooks:hover {
-  background-color: #cfcbe6;
-  border-bottom: 2px solid #efefef;
+  background-color: #060221;
+  border-radius: 1.5rem;
+  border-bottom: 2px solid #595757;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
 }
 .header__more {
-  width: 6rem;
+  width: 2.5rem;
   border: none;
   margin-right: 0.5rem;
   font-size: 0.9rem;
   font-family: "Nunito Sans", sans-serif;
+  background-color: #cfcbe6;
+  border-radius: 1.5rem;
 }
 .header__more:hover {
-  background-color: #cfcbe6;
-  border-bottom: 2px solid #efefef;
+  background-color: #060221;
+  border-radius: 1.5rem;
+  border-bottom: 2px solid #4a4848;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
 }
 .header__buttonsignout {
   width: 6rem;
+  margin-top: 0.4rem;
   border: none;
   border-radius: 1rem;
   height: 2rem;
   font-family: "Nunito Sans", sans-serif;
 }
 .header__buttonsignout:hover {
-  box-shadow: inset 0 0 0 50px #cfcbe6;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
 }/*# sourceMappingURL=Header.css.map */

@@ -3,7 +3,7 @@ import {db, auth, storage} from '../../firebase.js';
 import Cards from '../../components/cards/Cards.js';
 import './HomePage.scss';
 import axios from 'axios';
-import Hero from '../../assets/hero/hero.jpg';
+import Hero from '../../assets/hero/hero-removebg-preview.png';
 import "firebase/auth";
 import firebase from 'firebase'
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';

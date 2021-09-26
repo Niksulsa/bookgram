@@ -8,4 +8,8 @@
 
 .main {
   background-color: #e4d1f9;
+}
+
+.app {
+  display: flex;
 }/*# sourceMappingURL=App.css.map */

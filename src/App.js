@@ -12,7 +12,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 
 function App() {
     return (
-        <Router>
+        <Router className="app">
             <Header/>
             <Switch>
                 <Route path="/login" exact

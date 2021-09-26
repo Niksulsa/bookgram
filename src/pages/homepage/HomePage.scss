@@ -47,6 +47,7 @@
     &__heading{
         font-size: 1.5rem;
         margin-top: 2rem;
+        color:  #cfcbe6;
     }
 
     &__img{
@@ -70,11 +71,12 @@
     }
     &__welcome{
         font-size: 3rem;
-        color:black;
+        color:#cfcbe6;
     }
 
     &__username{
         padding: 0.5rem;
+        color: #cfcbe6;
 
     }
 }
@@ -94,10 +96,12 @@
         font-family: 'Stick No Bills', sans-serif;
         font-weight: 700;
         font-size: 1.2rem;
+        color: #cfcbe6;
     }
     &__author{
         margin-left: 10rem;
         font-family: 'Stick No Bills', sans-serif;
+        color: #cfcbe6;
     }
 
     &__button{
@@ -109,9 +113,14 @@
         font-weight: 800;
         font-family: 'Nunito Sans', sans-serif;
 
+        &:hover{
+            box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+            background-color: #060221;
+            color:white;
+            border-bottom: 2px solid rgb(89, 87, 87);
+          }
+
         &:active {
-            background-color: #a498eb;
-            box-shadow: 0 5px #666;
             transform: translateY(4px);
           }
 
