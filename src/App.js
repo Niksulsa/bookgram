@@ -7,6 +7,7 @@ import LoginPage from './pages/login/LoginPage';
 import Header from './components/header/Header'
 //import Search from './components/Search/Search';
 import Description from './components/description/Description';
+import ProfilePage from './pages/profile/ProfilePage';
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
                 <Route path="/signup" exact
                     component={SignUp}/>
                 <Route path="/description" exact
-                    component={Description} />    
+                    component={Description} />  
+                <Route path="/profile" exact
+                    component={ProfilePage}/>
             </Switch>
         </Router>
     );

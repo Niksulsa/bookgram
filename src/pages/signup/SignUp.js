@@ -4,7 +4,6 @@ import './SignUp.scss';
 //import { auth } from '../../firebase';
 import firebaseConfig from '../../firebase';
 import {db} from '../../firebase.js';
-import {doesUsernameExist} from '../../firebase'
 
 function SignUp(){
     const [currentUser, setCurrentUser] = useState(null); 

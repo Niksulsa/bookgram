@@ -3,26 +3,41 @@
     display: flex;
     align-items: center;
 
+    &__buttonbox{
+        display: flex;
+        justify-content: space-evenly;
+        width:60%
+
+    }
+
     &__logo{
         width:30%;
     }
-    &__buttonbox{
-        width:50%;
-        padding:0.5rem;
-        margin-left:1rem ;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &__mybooks{
+        width:10rem;
+        border:none;
+        height:2.5rem;
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+        font-family: 'Nunito Sans', sans-serif;
+        &:hover{
+            background-color: #cfcbe6;
+            border-bottom: 2px solid rgb(239, 239, 239);
+
+        }
     }
 
-    &__button{
+    &__more{
         width:6rem;
-        background-color: #cfcbe6;
         border:none;
-        border-radius: 1rem;
-        height:2rem;
         margin-right: 0.5rem;
+        font-size: 0.9rem;
         font-family: 'Nunito Sans', sans-serif;
+        &:hover{
+            background-color: #cfcbe6;
+            border-bottom: 2px solid rgb(239, 239, 239);
+
+        }
 
     }
     &__buttonsignout{

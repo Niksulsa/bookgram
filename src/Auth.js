@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import firebaseConfig, { db } from "./firebase";
-import firebase from 'firebase';
+import React, { useContext,useEffect, useState } from "react";
+import firebaseConfig from "./firebase";
 
 export const AuthContext = React.createContext();
+export function useAuth(){
+  return useContext(AuthContext)
+}
 
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);

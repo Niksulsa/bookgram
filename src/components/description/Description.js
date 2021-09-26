@@ -2,28 +2,32 @@ import React from 'react'
 import {useState} from 'react';
 import axios from 'axios';
 import './Description.scss';
+import AddToRead from '../../pages/saved/AddToRead';
 
 
 export default function Description() {
     const [books, setbooks] = useState("");
     const [results, setResults] = useState([]);
 
+//for the search input to connect it with the api url as a query
     function handleChange(event) {
-        const books = event.target.value
-        setbooks(books);
-    }    
+        const booksInput = event.target.value
+        setbooks(booksInput);
+    }
+
+
+    //getting google books
     function handleSubmit(event) {
         event.preventDefault();
-        
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${books}`)
-        .then(data => { 
+        .then(data => {
+            // console.log(data)
             setResults(data.data.items)
-
         })
 
     }
-      
 
+    console.log("results",results)
     return (
         <div className="">
             <div className="search">
@@ -44,13 +48,13 @@ export default function Description() {
                     </form>
                 </div>
                 {
-                results.map(book => (
+                results.map((book,id) => (
                     <div className="desc">
                         <div className="desc__container">
                             <div className="desc__imagebox">
                                 <img className="desc__images"
                                     src={
-                                        book.volumeInfo.imageLinks.thumbnail
+                                        book.volumeInfo.imageLinks?.thumbnail
                                     }
                                     alt={
                                         book.title
@@ -62,7 +66,7 @@ export default function Description() {
                             </div>
 
                             <div className="desc__descbox">
-                                <div>
+                                <div className="desc__title">
                                     <h3>{
                                         book.volumeInfo.title
                                     }</h3>
@@ -71,6 +75,9 @@ export default function Description() {
                                     <p>{
                                         book.volumeInfo.averageRating
                                     }</p>
+                                    <div>
+                                    </div>
+
                                 </div>
                                 <div className="desc__description">
                                     <p>{
@@ -83,7 +90,7 @@ export default function Description() {
 
                         <div className="button">
                             <div className="button__category">
-                                <button className="button__addtoread">ADD TO READ</button>
+                                <AddToRead books={results[id]} className="button__addtoread"/>
                                 <button className="button__addtoread">READ</button>
                             </div>
                             <div className="button__googlebox">

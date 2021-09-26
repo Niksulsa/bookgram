@@ -1,0 +1,11 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: #e4d1f9;
+}/*# sourceMappingURL=App.css.map */

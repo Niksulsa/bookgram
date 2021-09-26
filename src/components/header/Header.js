@@ -14,8 +14,11 @@ export default function Header() {
                 <img  className="header__logo" src={Logo} alt=""/>
                 </Link>
                 <div className="header__buttonbox">
+                    <Link to='/profile'>
+                    <a className="header__mybooks"> My Books</a>
+                    </Link>
                     <Link to='/description'>
-                      <button className="header__button">More Books</button> 
+                      <a className="header__more">More Books</a> 
                     </Link> 
                     <Link to='/login'>
                     <button  className="header__buttonsignout">Signout</button>

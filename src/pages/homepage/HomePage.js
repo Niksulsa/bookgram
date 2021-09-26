@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {db, auth} from '../../firebase.js';
+import {db, auth, storage} from '../../firebase.js';
 import Cards from '../../components/cards/Cards.js';
 import './HomePage.scss';
 import axios from 'axios';
 import Hero from '../../assets/hero/hero.jpg';
 import "firebase/auth";
+import firebase from 'firebase'
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
+import AddToRead from '../saved/AddToRead.js';
 // const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
 const url = "https://type.fit/api/quotes"
@@ -28,7 +30,7 @@ export default function HomePage() {
                 if (authUser.displayName) {} else {
                     return authUser.updateProfile({displayName: username})
                 }
-                console.log("authuser", authUser)
+                // console.log("authuser", authUser)
 
             } else {
                 setUser(null)
@@ -42,10 +44,12 @@ export default function HomePage() {
 
     const fetchData = () => {
         if (user) {
-            db.collection('users').where('user_id', '==', user.uid).get().then(snapshot => {
-                console.log("snapshot", snapshot)
+            db.collection('users').where('user_id', '==', user.uid)
+            .get()
+            .then(snapshot => {
+                // console.log("snapshot", snapshot)
                 snapshot.forEach(doc => {
-                    console.log("docData", doc.data())
+                    // console.log("docData", doc.data())
                     setdataUser(doc.data())
                 })
             }).catch(err => {
@@ -53,6 +57,7 @@ export default function HomePage() {
             })
         }
     }
+
 
 
     useEffect(() => {
@@ -95,10 +100,12 @@ export default function HomePage() {
     if (!user || !dataUser) {
         return <p>Loading...</p>
     }
+    console.log("user", dataUser.username)
 
     return (
         <div className="page">
             <div className="hero">
+            {/* <AddToRead/> */}
                 <div className="hero__herocontainer">
                     <div className="hero__herotext">
                         <h1 className="hero__welcome">Welcome</h1>
@@ -162,8 +169,9 @@ export default function HomePage() {
                             postId={id}
                             userId={
                                 post.user_id
+                        
                             }
-                            // userComment={post.user_id}
+                            currentUsername={dataUser.username}
                             caption={
                                 post.caption
                             }
@@ -174,6 +182,7 @@ export default function HomePage() {
                 } </div>
 
             </div>
+            
 
         </div>
 

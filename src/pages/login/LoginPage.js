@@ -17,8 +17,8 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const {email, password} = formData
-    console.log(email)
-    console.log(password)
+    // console.log(email)
+    // console.log(password)
     try {
       await firebaseConfig.auth().signInWithEmailAndPassword(email, password);
       history.push('/home')
