@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import {FacebookIcon} from "react-share";
 import {FacebookShareButton} from "react-share";
 import Heart from "react-heart";
+import { margin } from '@mui/system';
 
 
 export default function Cards({
@@ -87,7 +88,8 @@ export default function Cards({
                             alt=""/>
                         <div className="heart">
                             <div style={
-                                {width: "1rem"}
+                                {width: "1rem",
+                            }
                             }>
                                 <Heart isActive={active}
                                     onClick={
