@@ -8,7 +8,6 @@ import './ImageUpload.scss';
         const [image, setImage] = useState(null);
         const [progress, setProgress] = useState(0);
         const [caption, setCaption] = useState('');
-        console.log("authentication",auth.currentUser)
     
         const handleChange = (e) => {
             if (e.target.files[0]) {
@@ -32,7 +31,6 @@ import './ImageUpload.scss';
                         user_id:auth.currentUser.uid
     
                     })
-                    setCaption(null);
                     setProgress(0);
                     setImage(null);
                 })

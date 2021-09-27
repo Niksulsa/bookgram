@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import './SignUp.scss';
-//import { auth } from '../../firebase';
 import firebaseConfig from '../../firebase';
 import {db} from '../../firebase.js';
 import Logo from '../../assets/logo/logo-op-preview.png'
@@ -48,7 +47,7 @@ function SignUp(){
         <div>
             <div className="signup">
                 <form  onSubmit={handleSubmit} className="signup__form">
-                <img className="signup__logo" src={Logo}/>
+                <img className="signup__logo" src={Logo} alt=""/>
                     <h1 className="signup__heading">
                         Sign Up</h1>
                     <input onChange={handleFormDataInput} className="signup__input" type="text" name="username" placeholder="Username"></input>

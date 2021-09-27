@@ -17,8 +17,6 @@ export default function ProfilePage() {
             if (response.data) {
                 let convert = Object.entries(response.data)
                 setResults(convert)
-                // setResults([])
-                console.log(convert)
                 // setResults(data.data.items)
             }
         }))
@@ -26,12 +24,9 @@ export default function ProfilePage() {
     }, [])
 
     const removeBook = (id, index) => {
-        console.log("id", id)
         axios.delete(`https://bookgram-d5394-default-rtdb.firebaseio.com/users/${
             currentUser.uid
         }/${id}.json`).then(res => {
-            console.log(res)
-            console.log(results)
             const resultsCopy = [...results]
             resultsCopy.splice(index, 1)
             setResults(resultsCopy)
@@ -40,7 +35,11 @@ export default function ProfilePage() {
         })
     }
 
-    console.log(results.length)
+
+    if(!currentUser){
+        return <p>PAGE NOT FOUND</p>
+
+    }
     return (
         <div>
             <Header/>

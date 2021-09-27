@@ -6,7 +6,6 @@ import firebase from 'firebase';
 import {FacebookIcon} from "react-share";
 import {FacebookShareButton} from "react-share";
 import Heart from "react-heart";
-import { margin } from '@mui/system';
 
 
 export default function Cards({
@@ -20,10 +19,8 @@ export default function Cards({
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
     const [username, setUsername] = useState("");
-    const [count, setCount] = useState(0);
     const [active, setActive] = useState(false)
 
-    const incrementMe = () => setCount(count + 1)
 
     // posting comments
     useEffect(() => {
@@ -43,7 +40,6 @@ export default function Cards({
         db.collection('users').where('user_id', '==', userId).get().then(snapshot => {
             snapshot.forEach(userDoc => {
                 setUsername(userDoc.data().username)
-                console.log("setusername", userDoc.data().username)
             })
         }).catch(err => {
             console.log(err)
@@ -57,7 +53,7 @@ export default function Cards({
         db.collection("posts").doc(postId).collection("comments").add({text: comment, username: currentUsername, timestamp: firebase.firestore.FieldValue.serverTimestamp()});
         setComment('')
     }
-    console.log('typeof ' + typeof comments)
+    // console.log('typeof ' + typeof comments)
     return (
         <div className="cards">
             <div className="cards__outerbox">
@@ -111,7 +107,7 @@ export default function Cards({
                                     {
                                     comment.username
                                 }</p>
-                                <p classname="cards__text">
+                                <p className="cards__text">
                                     {
                                     comment.text
                                 }</p>

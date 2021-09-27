@@ -26,10 +26,7 @@ const LoginPage = () => {
       alert(error);
     }
   };
-  // const currentUser = useContext(AuthContext);
-  // if (currentUser) {
-  //   return <Redirect to="/home" />;
-  // }
+
     return (
         <div>
             <div className="signin">

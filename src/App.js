@@ -4,8 +4,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SignUp from './pages/signup/SignUp';
 import HomePage from './pages/homepage/HomePage';
 import LoginPage from './pages/login/LoginPage';
-import Header from './components/header/Header'
-//import Search from './components/Search/Search';
 import Description from './components/description/Description';
 import ProfilePage from './pages/profile/ProfilePage';
 

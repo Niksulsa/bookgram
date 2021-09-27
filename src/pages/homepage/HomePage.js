@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {db, auth, storage} from '../../firebase.js';
+import {db, auth} from '../../firebase.js';
 import Cards from '../../components/cards/Cards.js';
 import './HomePage.scss';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import Hero from '../../assets/hero/hero-removebg-preview.png';
 import "firebase/auth";
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
 import Header from '../../components/header/Header.js';
+
 // const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
 const url = "https://type.fit/api/quotes"
@@ -30,8 +31,6 @@ export default function HomePage() {
                 if (authUser.displayName) {} else {
                     return authUser.updateProfile({displayName: username})
                 }
-                // console.log("authuser", authUser)
-
             } else {
                 setUser(null)
             }
@@ -96,11 +95,9 @@ export default function HomePage() {
     }
 
 
-    console.log(user)
     if (!user || !dataUser) {
         return <p>Loading...</p>
     }
-    console.log("user", dataUser.username)
 
     return (
         <div className="page">
@@ -143,7 +140,7 @@ export default function HomePage() {
                             title
                         } = book
                         return (
-                            <a href={amazon_product_url}
+                            <a key={id} href={amazon_product_url}
                                 className="hero__container">
                                 <div className="hero__imgbox">
                                     <img className="hero__img"

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Description.scss';
 import AddToRead from '../../pages/saved/AddToRead';
 import Header from '../header/Header';
-import { Rating, RatingView } from 'react-simple-star-rating'
+import { Rating } from 'react-simple-star-rating'
 
 
 export default function Description() {
