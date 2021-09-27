@@ -3,6 +3,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import './Description.scss';
 import AddToRead from '../../pages/saved/AddToRead';
+import Header from '../header/Header';
 
 
 export default function Description() {
@@ -30,11 +31,9 @@ export default function Description() {
     console.log("results",results)
     return (
         <div className="">
+            <Header/>
             <div className="search">
                 {/* <video className="search__video" src={Hero} autoPlay muted loop/> */}
-                <div className="search__headingbox">
-                    <h1 className="search__heading">Search and Add</h1>
-                </div>
                 <div className="search__form">
                     <form className="search__searchform"
                         onSubmit={handleSubmit}>
@@ -91,7 +90,6 @@ export default function Description() {
                         <div className="button">
                             <div className="button__category">
                                 <AddToRead books={results[id]} className="button__addtoread"/>
-                                <button className="button__addtoread">READ</button>
                             </div>
                             <div className="button__googlebox">
                                 <a href={

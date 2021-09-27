@@ -37,6 +37,7 @@
   font-size: 1.5rem;
   margin-top: 2rem;
   color: #cfcbe6;
+  font-weight: 400;
 }
 .hero__img {
   width: 6.5rem;
@@ -57,6 +58,7 @@
 .hero__welcome {
   font-size: 3rem;
   color: #cfcbe6;
+  font-weight: 400;
 }
 .hero__username {
   padding: 0.5rem;
@@ -85,20 +87,19 @@
   color: #cfcbe6;
 }
 .quotes__button {
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
   width: 7rem;
-  background-color: #cfcbe6;
   border: none;
   border-radius: 1rem;
   height: 2.5rem;
   font-weight: 800;
   font-family: "Nunito Sans", sans-serif;
 }
-.quotes__button:hover {
-  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
-  background-color: #060221;
-  color: white;
-  border-bottom: 2px solid #595757;
-}
 .quotes__button:active {
   transform: translateY(4px);
+  background-color: white;
+  color: black;
 }/*# sourceMappingURL=HomePage.css.map */

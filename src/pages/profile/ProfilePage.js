@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {useAuth} from '../../Auth';
 import './ProfilePage.scss';
+import Header from '../../components/header/Header';
 
 
 export default function ProfilePage() {
@@ -14,8 +15,6 @@ export default function ProfilePage() {
             currentUser.uid
         }.json`).then((response => { // let initialObject = {...response}
             if (response.data) {
-
-
                 let convert = Object.entries(response.data)
                 setResults(convert)
                 // setResults([])
@@ -41,58 +40,56 @@ export default function ProfilePage() {
         })
     }
 
-
+    console.log(results.length)
     return (
         <div>
-            <h2>Reading List</h2>
-            <div className="addedcontainer"> {
-                results.length !== 0 && results.map((book, index) => (
-                    <div className="added">
-                        <div className="added__container">
-                            <div className="added__imagebox">
-                            <div>
-                                    <h3>{
-                                        book[1].volumeInfo.title
-                                    }</h3>
-                                </div>
-                                <img className="added__images"
-                                    src={
+            <Header/>
+            <div className="page">
+                <div className="heading">
+                <h2 className="heading__title">Reading </h2>
+                    <span className="heading__number">{
+                    results.length
+                }</span>
+                </div>
+                <div className="addedcontainer">
+                    {
+                    results.length !== 0 && results.map((book, index) => (
+                        <div className="added">
+                            <figure class="added__block">
+                                <h1 className="added__title">{
+                                    book[1].volumeInfo.title
+                                }</h1>
+                                <img className="added__images" src={
                                         book[1].volumeInfo.imageLinks ?. thumbnail
-                                        // book[1].volumeInfo.imageLinks?.thumbnail
                                     }
                                     alt={
                                         book[1].title
                                     }/>
-                                <div className="added__author">
+                                <figcaption className="added__caption">
+                                    <h3 className="added__author">
                                     {
-                                    book[1].volumeInfo.authors[0]
-                                }
-                                </div>
-                            </div>
-
-                            <div className="addedbutton">
-                            <div className="addedbutton__category">
-                                <button onClick={
-                                        () => removeBook(book[0], index)
+                                        book[1].volumeInfo.authors[0]
                                     }
-                                    className="addedbutton__addtoread">Delete</button>
-                            </div>
-                            <div className="addedbutton__googlebox">
-                                <a href={
-                                    book[1].volumeInfo.infoLink
-                                }>
-                                    <button className="addedbutton__googlebutton">
-                                        GoogleLink</button>
-                                </a>
-                            </div>
+                                    </h3>
+                
+                                    <button className="added__delete" onClick={
+                                                () => removeBook(book[0], index)
+                                            }>
+                                        Delete
+                                    </button>
+                                    <a className="added__googlelink" href={
+                                            book[1].volumeInfo.infoLink
+                                        }>
+                                            <button className="added__googlebutton">
+                                                GoogleLink</button>
+                                        </a>
+                                </figcaption>
+                            </figure>
                         </div>
+                    ))
+                } </div>
 
-                        </div>
-
-                    </div>
-                ))
-            } </div>
-
+            </div>
         </div>
     )
 }

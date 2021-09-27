@@ -5,9 +5,8 @@ import './HomePage.scss';
 import axios from 'axios';
 import Hero from '../../assets/hero/hero-removebg-preview.png';
 import "firebase/auth";
-import firebase from 'firebase'
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
-import AddToRead from '../saved/AddToRead.js';
+import Header from '../../components/header/Header.js';
 // const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
 const url = "https://type.fit/api/quotes"
@@ -21,6 +20,7 @@ export default function HomePage() {
     const [username, setUsername] = useState(null);
     const [user, setUser] = useState(null);
     const [dataUser, setdataUser] = useState(null);
+    
 
 
     useEffect(() => {
@@ -104,11 +104,11 @@ export default function HomePage() {
 
     return (
         <div className="page">
+            <Header/>
             <div className="hero">
-            {/* <AddToRead/> */}
                 <div className="hero__herocontainer">
                     <div className="hero__herotext">
-                        <h1 className="hero__welcome">Welcome</h1>
+                        <h1 className="hero__welcome">WELCOME</h1>
                         <h2 className="hero__username">{
                             dataUser.username
                         }</h2>

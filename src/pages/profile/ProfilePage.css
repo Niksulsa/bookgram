@@ -1,22 +1,94 @@
+.page {
+  height: 200vh;
+}
+
 .addedcontainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .added {
   display: flex;
-  width: 33%;
-  justify-content: center;
+  width: 20%;
+  justify-content: space-evenly;
   align-content: center;
+  margin: 1rem;
   text-align: center;
   height: 25%;
-  padding: 1rem;
+  position: relative;
+  margin-bottom: 3rem;
 }
 .added__imagebox {
   width: 100%;
 }
+.added__title {
+  display: none;
+}
+.added__title:hover {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  font-size: 1rem;
+  width: 40%;
+}
+.added__images {
+  width: 100%;
+  height: 12rem;
+  object-fit: contain;
+}
+.added__block {
+  width: 100%;
+  background-color: #cfcbe6;
+  border-radius: 1rem;
+  box-shadow: 0 14px 28px rgba(184, 184, 184, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.added__caption {
+  color: white;
+}
+.added__delete {
+  margin: 1rem 0rem;
+  color: black;
+  border-bottom: 2px solid #595757;
+  width: 5rem;
+  border: none;
+  background-color: #f9b15a;
+  border-radius: 1rem;
+  height: 2rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.added__delete:active {
+  transform: translateY(4px);
+}
+.added__googlebutton {
+  margin: 1rem 0.2rem;
+  color: black;
+  border-bottom: 2px solid #595757;
+  width: 5rem;
+  border: none;
+  border-radius: 1rem;
+  height: 2rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.added__googlebutton:active {
+  transform: translateY(4px);
+}
 
-.addedbutton {
+.heading {
+  color: white;
   display: flex;
-  justify-content: center;
+  align-content: center;
+}
+.heading__number {
+  background-color: #9f5ea9;
+  color: black;
+  width: 4%;
+  height: 3%;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
 }/*# sourceMappingURL=ProfilePage.css.map */

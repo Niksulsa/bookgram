@@ -5,7 +5,7 @@ import {db} from '../../firebase';
 import firebase from 'firebase';
 import {FacebookIcon} from "react-share";
 import {FacebookShareButton} from "react-share";
-import Heart from "react-animated-heart";
+import Heart from "react-heart";
 
 
 export default function Cards({
@@ -20,18 +20,15 @@ export default function Cards({
     const [comment, setComment] = useState("");
     const [username, setUsername] = useState("");
     const [count, setCount] = useState(0);
+    const [active, setActive] = useState(false)
 
     const incrementMe = () => setCount(count + 1)
-    
-//posting comments
+
+    // posting comments
     useEffect(() => {
         let unsubscribe;
         if (postId) {
-            unsubscribe = db.collection("posts")
-            .doc(postId)
-            .collection("comments")
-            .orderBy("timestamp", 'desc')
-            .onSnapshot((snapshot) => {
+            unsubscribe = db.collection("posts").doc(postId).collection("comments").orderBy("timestamp", 'desc').onSnapshot((snapshot) => {
                 setComments(snapshot.docs.map((doc) => doc.data()))
             })
         }
@@ -40,14 +37,12 @@ export default function Cards({
         }
     }, [postId]);
 
-//getting user and user id to 
+    // getting user and user id to
     useEffect(() => {
-        db.collection('users')
-        .where('user_id', '==', userId)
-        .get().then(snapshot => {
+        db.collection('users').where('user_id', '==', userId).get().then(snapshot => {
             snapshot.forEach(userDoc => {
                 setUsername(userDoc.data().username)
-                console.log("setusername",userDoc.data().username )
+                console.log("setusername", userDoc.data().username)
             })
         }).catch(err => {
             console.log(err)
@@ -55,16 +50,11 @@ export default function Cards({
 
     }, [userId])
 
-// adding comment attributes
+    // adding comment attributes
     const postComment = (event) => {
         event.preventDefault();
-        db.collection("posts").doc(postId)
-        .collection("comments")
-        .add({
-            text: comment, 
-            username:currentUsername,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()});
-            setComment('')
+        db.collection("posts").doc(postId).collection("comments").add({text: comment, username: currentUsername, timestamp: firebase.firestore.FieldValue.serverTimestamp()});
+        setComment('')
     }
     console.log('typeof ' + typeof comments)
     return (
@@ -95,13 +85,16 @@ export default function Cards({
                         <img src={imageUrl}
                             className="cards__image"
                             alt=""/>
-                            <div className="heart">
-                                <div className="heart__content">
-                                    <span className="heart__heartimg"></span>
-                                    <span className="heart__like"></span>
-                                    <button onClick={incrementMe} className="heart__numb">{count} Likes</button>
-                                </div>
+                        <div className="heart">
+                            <div style={
+                                {width: "1rem"}
+                            }>
+                                <Heart isActive={active}
+                                    onClick={
+                                        () => setActive(!active)
+                                    }/>
                             </div>
+                        </div>
                     </div>
 
                     <div className="cards__captionbox">

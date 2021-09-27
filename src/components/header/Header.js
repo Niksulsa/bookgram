@@ -8,8 +8,9 @@ import Search from '../../assets/logo/search.png';
 
 
 export default function Header() {
-    
+   
     return (
+        
         <div>
             <header className="header">
                 <Link to='/home'>
@@ -31,3 +32,4 @@ export default function Header() {
         </div>
     )
 }
+

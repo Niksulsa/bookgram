@@ -13,7 +13,6 @@ import ProfilePage from './pages/profile/ProfilePage';
 function App() {
     return (
         <Router className="app">
-            <Header/>
             <Switch>
                 <Route path="/login" exact
                     component={LoginPage}/>

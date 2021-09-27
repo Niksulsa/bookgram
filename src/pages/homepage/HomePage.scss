@@ -48,6 +48,7 @@
         font-size: 1.5rem;
         margin-top: 2rem;
         color:  #cfcbe6;
+        font-weight: 400;
     }
 
     &__img{
@@ -72,6 +73,7 @@
     &__welcome{
         font-size: 3rem;
         color:#cfcbe6;
+        font-weight: 400;
     }
 
     &__username{
@@ -105,23 +107,21 @@
     }
 
     &__button{
+        box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+        background-color: #060221;
+        color:white;
+        border-bottom: 2px solid rgb(89, 87, 87);
         width:7rem;
-        background-color: #cfcbe6;
         border:none;
         border-radius: 1rem;
         height:2.5rem;
         font-weight: 800;
         font-family: 'Nunito Sans', sans-serif;
 
-        &:hover{
-            box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
-            background-color: #060221;
-            color:white;
-            border-bottom: 2px solid rgb(89, 87, 87);
-          }
-
         &:active {
             transform: translateY(4px);
+            background-color: white;
+            color:black
           }
 
     }
