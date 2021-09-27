@@ -3,7 +3,7 @@ import './LoginPage.scss';
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import firebaseConfig from "../../firebase";
-
+import Logo from '../../assets/logo/logo-op-preview.png';
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -34,6 +34,7 @@ const LoginPage = () => {
         <div>
             <div className="signin">
                 <form onSubmit={handleSubmit} className="signin__form">
+                  <img className="signin__logo" src={Logo}/>
                     <h1 className="signin__heading">
                         Sign In</h1>
                     <input onChange={handleFormDataInput} className="signin__input" type="text" name="email" placeholder="Email"></input>

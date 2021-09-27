@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Description.scss';
 import AddToRead from '../../pages/saved/AddToRead';
 import Header from '../header/Header';
+import { Rating, RatingView } from 'react-simple-star-rating'
 
 
 export default function Description() {
@@ -71,9 +72,8 @@ export default function Description() {
                                     }</h3>
                                 </div>
                                 <div className="desc__rating">
-                                    <p>{
-                                        book.volumeInfo.averageRating
-                                    }</p>
+    
+                                <Rating  ratingValue={book.volumeInfo.averageRating} /* Rating Props */ />
                                     <div>
                                     </div>
 

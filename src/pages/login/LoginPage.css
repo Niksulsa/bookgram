@@ -1,4 +1,4 @@
-.signup {
+.signin {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,13 +7,10 @@
   background-color: white;
   height: 50rem;
 }
-.signup__logo {
+.signin__logo {
   width: 40%;
 }
-.signup__heading {
-  margin-bottom: 1.5rem;
-}
-.signup__form {
+.signin__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,25 +18,26 @@
   width: 35%;
   background-color: #08022d;
   padding: 1rem;
-  margin: 1rem;
   border-radius: 1rem;
   color: #cfcbe6;
 }
-.signup__input {
-  margin-bottom: 2rem;
-  width: 90%;
+.signin__input {
+  margin: 0.5rem;
+  width: 100%;
   border-radius: 0.5rem;
   height: 2.5rem;
   border: none;
   padding-left: 1rem;
+  margin-bottom: 1.2rem;
 }
-.signup__buttonbox {
+.signin__buttonbox {
   width: 50%;
+  margin-top: 1rem;
 }
-.signup__button {
+.signin__button {
   background-color: #cfcbe6;
   border: none;
   height: 2.5rem;
   width: 100%;
   border-radius: 1rem;
-}/*# sourceMappingURL=SignUp.css.map */
+}/*# sourceMappingURL=LoginPage.css.map */
