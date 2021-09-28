@@ -44,6 +44,11 @@
   border-radius: 1rem;
   box-shadow: 0 14px 28px rgba(184, 184, 184, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+@media screen and (min-width: 768px) {
+  .added__block {
+    height: 18rem;
+  }
+}
 .added__caption {
   color: white;
 }
@@ -83,10 +88,10 @@
   align-content: center;
 }
 .heading__number {
-  background-color: #9f5ea9;
+  background-color: #d5adf9;
   color: black;
   width: 4%;
-  height: 3%;
+  height: 100%;
   text-align: center;
   font-size: 1.4rem;
   margin-left: 1rem;

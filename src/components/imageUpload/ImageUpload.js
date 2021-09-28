@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {storage, db, auth} from '../../firebase';
 import './ImageUpload.scss';
+import firebase from 'firebase';
 
 
     export default function ImageUpload({username}) {
@@ -25,7 +26,8 @@ import './ImageUpload.scss';
                 alert(error.message);
             }, () => {
                 storage.ref("images").child(image.name).getDownloadURL().then(url => {
-                    db.collection("posts").add({ //    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    db.collection("posts").add({ 
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                         caption: caption,
                         imageUrl: url,
                         user_id:auth.currentUser.uid

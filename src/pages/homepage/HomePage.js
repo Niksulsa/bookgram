@@ -60,7 +60,7 @@ export default function HomePage() {
 
 
     useEffect(() => {
-        db.collection('posts').onSnapshot(snapshot => {
+        db.collection('posts').orderBy("timestamp", 'desc').onSnapshot(snapshot => {
             setPosts(snapshot.docs.map(postDoc => {
                 const postData = {
                     id: postDoc.id,
@@ -105,10 +105,13 @@ export default function HomePage() {
             <div className="hero">
                 <div className="hero__herocontainer">
                     <div className="hero__herotext">
-                        <h1 className="hero__welcome">WELCOME</h1>
-                        <h2 className="hero__username">{
+                        <h1 className="hero__welcome">TAKE A READING VACCATION</h1>
+                        <h2 className="hero__username"> {
                             dataUser.username
                         }</h2>
+                        <div>
+                            <p></p>
+                        </div>
                         <div className="quotes"> 
                             <p className="quotes__text">
                                 {
@@ -147,8 +150,6 @@ export default function HomePage() {
                                         src={book_image}
                                         alt={title}/>
                                 </div>
-                                <p className="hero__author">
-                                    {author}</p>
                             </a>
                         )
                     })

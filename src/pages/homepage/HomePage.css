@@ -3,6 +3,8 @@
 .page {
   margin: 1rem;
   z-index: -1;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero__main {
@@ -13,11 +15,10 @@
   position: relative;
   border-radius: 1rem;
   margin-top: 1rem;
-  background-color: #f1f0f5;
+  background-color: black;
 }
 .hero__container {
   padding: 1rem;
-  color: black;
   list-style: none;
   text-decoration: none;
   margin-top: 1rem;
@@ -29,9 +30,21 @@
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  .hero__herocontainer {
+    align-content: flex-start;
+  }
+}
 .hero__heroimg {
-  width: 30rem;
-  height: 30rem;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero__heroimg {
+    display: inline;
+    width: 55%;
+    height: 70%;
+    padding: 2rem;
+  }
 }
 .hero__heading {
   font-size: 1.5rem;
@@ -48,6 +61,7 @@
 }
 .hero__img:hover {
   transform: scale(2);
+  box-shadow: none;
 }
 .hero__author {
   font-size: 0.7rem;
@@ -56,23 +70,22 @@
   font-weight: bolder;
 }
 .hero__welcome {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #cfcbe6;
   font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .hero__welcome {
+    font-size: 2rem;
+  }
 }
 .hero__username {
   padding: 0.5rem;
   color: #cfcbe6;
 }
 
-.articles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .quotes {
-  width: 20rem;
+  width: 100%;
   padding: 0.5rem;
 }
 .quotes__text {

@@ -1,3 +1,4 @@
+@use '../../styles/partials/mixins' as *;
 .page{
 height:200vh;
 }
@@ -51,6 +52,10 @@ height:200vh;
         border-radius: 1rem;
 		box-shadow: 0 14px 28px rgba(184, 184, 184, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 
+        @include tablet{
+            height:18rem;
+        }
+
 }
 
 &__caption{
@@ -99,10 +104,10 @@ height:200vh;
     align-content: center;
 
     &__number{
-        background-color: rgb(159, 94, 169);
+        background-color: rgb(213, 173, 249);
         color:black;
         width: 4%;
-        height: 3%;
+        height: 100%;
         text-align: center;
         font-size: 1.4rem;
         margin-left: 1rem;
