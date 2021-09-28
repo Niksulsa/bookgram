@@ -11,8 +11,7 @@ import Home from '../../assets/icons/home-o.png'
 
 export default function Header() {
    
-    return (
-        
+    return ( 
         <div>
             <header className="header">
                 <Link to='/home'>

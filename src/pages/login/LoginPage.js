@@ -40,9 +40,9 @@ const LoginPage = () => {
                         <button type="submit" className="signin__button">Sign In</button>
                     </div>
                 </form>
-                <p>
+                <p className="log">
                     Need an account?
-                    <Link to="/signup">Sign up</Link>
+                    <Link to="/signup"> Sign up</Link>
                 </p>
 
             </div>

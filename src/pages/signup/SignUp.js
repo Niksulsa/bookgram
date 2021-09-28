@@ -57,9 +57,9 @@ function SignUp(){
                       <button type="submit" className="signup__button">Sign Up</button>
                     </div>
                 </form>
-                <p>
+                <p className="log">
                     Have an account?
-                    <Link to="/login">Log in</Link>
+                    <Link to="/login"> Log in</Link>
                 </p>
 
             </div>
