@@ -40,6 +40,17 @@
   justify-content: space-between;
   align-items: center;
 }
+.cards__captionbox {
+  display: flex;
+}
+.cards__caption {
+  margin-left: 0.4rem;
+}
+@media screen and (min-width: 768px) {
+  .cards__caption {
+    margin-left: 0.4rem;
+  }
+}
 .cards__input {
   width: 80%;
   height: 2rem;
@@ -51,16 +62,28 @@
 .cards__username {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
 }
 .cards__name {
   font-weight: 800;
-  padding-top: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.cards__commentimg {
+  width: 20%;
+}
+.cards__commentimgbox {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.cards__commentnumb {
+  background-color: purple;
+  border-radius: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+}
 .cards__text {
-  text-align: right;
+  text-align: left;
 }
 .cards__title {
   font-size: 1rem;

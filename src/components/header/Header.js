@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Book from '../../assets/logo/book.png';
 import Search from '../../assets/logo/search.png';
 import { auth } from '../../firebase';
+import Home from '../../assets/icons/home-o.png'
 // import { auth } from '../../firebase';
 
 
@@ -18,6 +19,10 @@ export default function Header() {
                 <img  className="header__logo" src={Logo} alt=""/>
                 </Link>
                 <div className="header__buttonbox">
+                    <Link to="/home">
+                    <img src={Home} className="header__home" />
+
+                    </Link>
                     <Link to='/description'>
                       <img src={Search} className="header__more" />
                     </Link> 

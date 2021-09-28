@@ -43,6 +43,18 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &__captionbox{
+    display: flex;
+  }
+  &__caption{
+    margin-left: 0.4rem;
+
+    @include tablet{
+      margin-left: 0.4rem;
+    }
+  }
+
   &__input{
     width:80%;
     height:2rem;
@@ -54,18 +66,34 @@
   &__username{
     display: flex;
     justify-content: flex-start ;
-    align-items: center;
   }
 
   &__name{
     font-weight: 800;
-    padding-top: 0.5rem;
     padding-right: 0.5rem;
     padding-bottom: 0.5rem;
   }
+  &__commentimg{
+    width:20%;
+  }
+
+  &__commentimgbox{
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  &__commentnumb{
+    // padding-top:1.4rem;
+    // padding-right: 0.5rem;
+    background-color:purple;
+    border-radius: 1.5rem;
+    width:1rem;
+    height:1rem;
+  }
 
   &__text{
-    text-align: right;
+    text-align: left;
   }
 
   &__title{

@@ -7,6 +7,7 @@ import Hero from '../../assets/hero/hero-removebg-preview.png';
 import "firebase/auth";
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
 import Header from '../../components/header/Header.js';
+import Video from '../../assets/video/rightvideo.mp4'
 
 // const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
 const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
@@ -21,7 +22,6 @@ export default function HomePage() {
     const [username, setUsername] = useState(null);
     const [user, setUser] = useState(null);
     const [dataUser, setdataUser] = useState(null);
-    
 
 
     useEffect(() => {
@@ -43,12 +43,8 @@ export default function HomePage() {
 
     const fetchData = () => {
         if (user) {
-            db.collection('users').where('user_id', '==', user.uid)
-            .get()
-            .then(snapshot => {
-                // console.log("snapshot", snapshot)
-                snapshot.forEach(doc => {
-                    // console.log("docData", doc.data())
+            db.collection('users').where('user_id', '==', user.uid).get().then(snapshot => { // console.log("snapshot", snapshot)
+                snapshot.forEach(doc => { // console.log("docData", doc.data())
                     setdataUser(doc.data())
                 })
             }).catch(err => {
@@ -56,7 +52,6 @@ export default function HomePage() {
             })
         }
     }
-
 
 
     useEffect(() => {
@@ -105,32 +100,42 @@ export default function HomePage() {
             <div className="hero">
                 <div className="hero__herocontainer">
                     <div className="hero__herotext">
-                        <h1 className="hero__welcome">TAKE A READING VACCATION</h1>
-                        <h2 className="hero__username"> {
-                            dataUser.username
-                        }</h2>
-                        <div>
-                            <p></p>
-                        </div>
-                        <div className="quotes"> 
-                            <p className="quotes__text">
-                                {
-                                quotes.text
-                            }</p>
-                            <p className="quotes__author">- {
-                                quotes.author ? quotes.author : "Anonymous"
-                            }</p>
-                            <button className="quotes__button"
-                                onClick={getQuotes}>
-                                Quote of the day
-                            </button>
+                        <video className="hero__video" 
+                            src={Video}
+                            type="video/mp4"
+                            autoPlay
+                            loop
+                            muted></video>
 
+                        <div className="hero__welcome-container">
+                            <h1 className="hero__welcome">TAKE A READING VACATION!!</h1>
+                            <h2 className="hero__username">
+                                {
+                                dataUser.username
+                            }</h2>
+                            <div>
+                                <p></p>
+                            </div>
+                            <div className="quotes">
+                                <p className="quotes__text">
+                                    {
+                                    quotes.text
+                                }</p>
+                                <p className="quotes__author">- {
+                                    quotes.author ? quotes.author : "Anonymous"
+                                }</p>
+                                <button className="quotes__button"
+                                    onClick={getQuotes}>
+                                    Quote of the day
+                                </button>
+
+                            </div>
                         </div>
+
                     </div>
-                    <img className="hero__heroimg"
+                    {/* <img className="hero__heroimg"
                         src={Hero}
-                        alt=""/>
-                </div>
+                        alt=""/> */} </div>
                 <h2 className="hero__heading">BESTSELLERS</h2>
                 <div className="hero__main">
                     {
@@ -143,7 +148,8 @@ export default function HomePage() {
                             title
                         } = book
                         return (
-                            <a key={id} href={amazon_product_url}
+                            <a key={id}
+                                href={amazon_product_url}
                                 className="hero__container">
                                 <div className="hero__imgbox">
                                     <img className="hero__img"
@@ -167,9 +173,10 @@ export default function HomePage() {
                             postId={id}
                             userId={
                                 post.user_id
-                        
                             }
-                            currentUsername={dataUser.username}
+                            currentUsername={
+                                dataUser.username
+                            }
                             caption={
                                 post.caption
                             }
@@ -180,7 +187,7 @@ export default function HomePage() {
                 } </div>
 
             </div>
-            
+
 
         </div>
 

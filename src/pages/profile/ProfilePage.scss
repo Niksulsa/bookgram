@@ -1,6 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 .page{
 height:200vh;
+
 }
 .addedcontainer{
     display: flex;
@@ -102,6 +103,7 @@ height:200vh;
     color:white;
     display: flex;
     align-content: center;
+    margin-left: 1rem;
 
     &__number{
         background-color: rgb(213, 173, 249);

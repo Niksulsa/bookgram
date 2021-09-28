@@ -86,6 +86,7 @@
   color: white;
   display: flex;
   align-content: center;
+  margin-left: 1rem;
 }
 .heading__number {
   background-color: #d5adf9;

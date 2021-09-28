@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import {FacebookIcon} from "react-share";
 import {FacebookShareButton} from "react-share";
 import Heart from "react-heart";
+import Comment from '../../assets/icons/comment.png'
 
 
 export default function Cards({
@@ -84,8 +85,7 @@ export default function Cards({
                             alt=""/>
                         <div className="heart">
                             <div style={
-                                {width: "1rem",
-                            }
+                                {width: "1rem"}
                             }>
                                 <Heart isActive={active}
                                     onClick={
@@ -96,21 +96,43 @@ export default function Cards({
                     </div>
 
                     <div className="cards__captionbox">
-                        <p className="card__caption">
+                        <h4 classname="cards__user">
+                            {username}</h4>
+                        <p className="cards__caption">
                             {caption}</p>
                     </div>
                     <div className="cards__comments">
+                        
+                        <div className="cards__commentimgbox">
+                                    <img className="cards__commentimg"
+                                        src={Comment}
+                                        alt=""/>
+                                        {/* <p className="cards__commentnumb">
+                                        {comments.length}
+                                        </p> */}
+
+                                </div>
                         {
                         comments.map((comment) => (
-                            <div className="cards__username">
-                                <p className="cards__name">
-                                    {
-                                    comment.username
-                                }</p>
-                                <p className="cards__text">
-                                    {
-                                    comment.text
-                                }</p>
+                            <div>
+                                {/* <div className="cards__commentimgbox">
+                                    <img className="cards__commentimg"
+                                        src={Comment}
+                                        alt=""/>
+
+                                </div> */}
+                                <div className="cards__username">
+
+                                    <p className="cards__name">
+                                        {
+                                        comment.username
+                                    }</p>
+                                    <p className="cards__text">
+                                        {
+                                        comment.text
+                                    }</p>
+                                </div>
+
                             </div>
                         ))
                     } </div>
