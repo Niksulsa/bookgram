@@ -96,7 +96,7 @@ export default function Cards({
                     </div>
 
                     <div className="cards__captionbox">
-                        <h4 classname="cards__user">
+                        <h4 className="cards__user">
                             {username}</h4>
                         <p className="cards__caption">
                             {caption}</p>
@@ -105,13 +105,7 @@ export default function Cards({
                         
                         {
                         comments.map((comment) => (
-                            <div>
-                                {/* <div className="cards__commentimgbox">
-                                    <img className="cards__commentimg"
-                                        src={Comment}
-                                        alt=""/>
-
-                                </div> */}
+                            <div key={comment.id}> 
                                 <div className="cards__username">
 
                                     <p className="cards__name">

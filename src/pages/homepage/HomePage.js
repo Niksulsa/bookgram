@@ -3,14 +3,13 @@ import {db, auth} from '../../firebase.js';
 import Cards from '../../components/cards/Cards.js';
 import './HomePage.scss';
 import axios from 'axios';
-import Hero from '../../assets/hero/hero-removebg-preview.png';
 import "firebase/auth";
 import ImageUpload from '../../components/imageUpload/ImageUpload.js';
 import Header from '../../components/header/Header.js';
-import Video from '../../assets/video/rightvideo.mp4'
+import Video from '../../assets/video/rightvideo.mp4';
+import BSN_API_KEY from '../../utils/Utils.js';
 
-// const BSN_API_URL = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key='
-const BSN_API_KEY = 't2YjLBGNCtldiy6B946tL3FA3qy7ZEJD';
+
 const url = "https://type.fit/api/quotes"
 let data;
 const randomNo = () => Math.floor(Math.random() * data.length) + 1;
@@ -100,13 +99,13 @@ export default function HomePage() {
             <div className="hero">
                 <div className="hero__herocontainer">
                     <div className="hero__herotext">
-                        <video className="hero__video" 
+                        <video className="hero__video"
                             src={Video}
                             type="video/mp4"
                             autoPlay
                             loop
                             muted></video>
-                            <div className="hero__welcome-container">
+                        <div className="hero__welcome-container">
                             <h1 className="hero__welcome">TAKE A READING VACATION!!</h1>
                             <h2 className="hero__username">
                                 {
@@ -132,40 +131,13 @@ export default function HomePage() {
                         </div>
 
                     </div>
-                    {/* <div className="hero__welcome-container">
-                            <h1 className="hero__welcome">TAKE A READING VACATION!!</h1>
-                            <h2 className="hero__username">
-                                {
-                                dataUser.username
-                            }</h2>
-                            <div>
-                                <p></p>
-                            </div>
-                            <div className="quotes">
-                                <p className="quotes__text">
-                                    {
-                                    quotes.text
-                                }</p>
-                                <p className="quotes__author">- {
-                                    quotes.author ? quotes.author : "Anonymous"
-                                }</p>
-                                <button className="quotes__button"
-                                    onClick={getQuotes}>
-                                    Quote of the day
-                                </button>
-
-                            </div>
-                        </div> */}
-                    {/* <img className="hero__heroimg"
-                        src={Hero}
-                        alt=""/> */} </div>
+                     </div>
                 <h2 className="hero__heading">BESTSELLERS</h2>
                 <div className="hero__main">
                     {
                     books.slice(0, 8).map((book) => {
                         const {
                             id,
-                            author,
                             book_image,
                             amazon_product_url,
                             title

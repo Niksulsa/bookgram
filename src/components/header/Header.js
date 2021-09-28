@@ -19,14 +19,14 @@ export default function Header() {
                 </Link>
                 <div className="header__buttonbox">
                     <Link to="/home">
-                    <img src={Home} className="header__home" />
+                    <img src={Home} alt="go-home" className="header__home" />
 
                     </Link>
                     <Link to='/description'>
-                      <img src={Search} className="header__more" />
+                      <img src={Search} alt="search for more books" className="header__more" />
                     </Link> 
                     <Link to='/profile'>
-                    <img src={Book} className="header__mybooks"/>
+                    <img src={Book} alt="check your profile" className="header__mybooks"/>
                     </Link>
                     <Link className="signout" to='/login'>
                     <button onClick={()=> auth.signOut()} className="header__buttonsignout">Signout</button>
