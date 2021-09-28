@@ -106,8 +106,7 @@ export default function HomePage() {
                             autoPlay
                             loop
                             muted></video>
-
-                        <div className="hero__welcome-container">
+                            <div className="hero__welcome-container">
                             <h1 className="hero__welcome">TAKE A READING VACATION!!</h1>
                             <h2 className="hero__username">
                                 {
@@ -133,6 +132,30 @@ export default function HomePage() {
                         </div>
 
                     </div>
+                    {/* <div className="hero__welcome-container">
+                            <h1 className="hero__welcome">TAKE A READING VACATION!!</h1>
+                            <h2 className="hero__username">
+                                {
+                                dataUser.username
+                            }</h2>
+                            <div>
+                                <p></p>
+                            </div>
+                            <div className="quotes">
+                                <p className="quotes__text">
+                                    {
+                                    quotes.text
+                                }</p>
+                                <p className="quotes__author">- {
+                                    quotes.author ? quotes.author : "Anonymous"
+                                }</p>
+                                <button className="quotes__button"
+                                    onClick={getQuotes}>
+                                    Quote of the day
+                                </button>
+
+                            </div>
+                        </div> */}
                     {/* <img className="hero__heroimg"
                         src={Hero}
                         alt=""/> */} </div>

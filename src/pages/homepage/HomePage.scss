@@ -1,5 +1,4 @@
 @use '../../styles/partials/mixins' as *;
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@500&display=swap');
 
 
@@ -46,7 +45,7 @@
         @include tablet{
             width:100%;
             margin-top: 0;
-            // position:relative
+             position:relative
         }
     }
 
@@ -102,9 +101,11 @@
     }
 
     &__welcome-container{
+        object-fit: cover;
+        z-index: 2;
         position:absolute;
-        left: 428px;
-        bottom: 250px;
+        left: 30%;
+        bottom: 30%;
     }
 
     &__username{

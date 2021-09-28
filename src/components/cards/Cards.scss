@@ -1,6 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+@use '../../styles/partials/typography' as *;
+
 .cards{
   display: flex;
   align-content: center;
@@ -27,6 +28,12 @@
   &__userbox{
     display: flex;
     align-content: center;
+  }
+
+  &__comments{
+    padding-top: 0.5rem;
+    background-color: rgb(243, 243, 243);
+    padding-bottom: 0.5rem;
   }
 
   &__image{

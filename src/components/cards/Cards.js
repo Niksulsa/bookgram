@@ -103,15 +103,6 @@ export default function Cards({
                     </div>
                     <div className="cards__comments">
                         
-                        <div className="cards__commentimgbox">
-                                    <img className="cards__commentimg"
-                                        src={Comment}
-                                        alt=""/>
-                                        {/* <p className="cards__commentnumb">
-                                        {comments.length}
-                                        </p> */}
-
-                                </div>
                         {
                         comments.map((comment) => (
                             <div>
