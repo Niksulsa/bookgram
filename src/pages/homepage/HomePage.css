@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@500&display=swap");
+.page {
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  background-color: black;
+}
+.hero__container {
+  padding: 1rem;
+  list-style: none;
+  text-decoration: none;
+}
+.hero__herocontainer {
+  height: auto;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .hero__herocontainer {
+    align-content: flex-start;
+  }
+}
+.hero__herotext {
+  margin-top: 2rem;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .hero__herotext {
+    width: 100%;
+    margin-top: 0;
+    position: relative;
+  }
+}
+.hero__video {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero__video {
+    display: inline;
+    z-index: -1;
+    width: 100%;
+  }
+}
+.hero__heading {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  color: #cfcbe6;
+  font-weight: 400;
+}
+.hero__img {
+  width: 6.5rem;
+  font-family: "Nunito Sans", sans-serif;
+  box-shadow: 12px 12px 2px 1px rgba(134, 134, 205, 0.2);
+  bottom: 1rem;
+  z-index: 2;
+}
+.hero__img:hover {
+  transform: scale(2);
+  box-shadow: none;
+}
+.hero__author {
+  font-size: 0.7rem;
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-weight: bolder;
+}
+.hero__welcome {
+  font-size: 2rem;
+  color: #000000;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .hero__welcome {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.hero__welcome-container {
+  object-fit: cover;
+  z-index: 2;
+  position: absolute;
+  left: 30%;
+  bottom: 30%;
+}
+.hero__username {
+  padding: 0.5rem;
+  color: #12055c;
+}
+
+.quotes {
+  width: 50%;
+  padding: 0.5rem;
+}
+.quotes__text {
+  padding-bottom: 0.5rem;
+  font-family: "Stick No Bills", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #78729b;
+}
+.quotes__author {
+  font-family: "Stick No Bills", sans-serif;
+  color: #aaa3d2;
+  text-align: right;
+}
+.quotes__button {
+  width: 7rem;
+  height: 2.5rem;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.quotes__button:active {
+  transform: translateY(4px);
+  background-color: white;
+  color: black;
+}/*# sourceMappingURL=HomePage.css.map */

@@ -1,0 +1,67 @@
+@use '../../styles/partials/mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap');
+.header{
+    @include display;
+    flex-direction: column;
+    z-index: 1;
+
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 0;
+    }
+
+    &__buttonbox{
+        @include display;
+        justify-content: space-evenly;
+        width:100%;
+        text-align: center;
+
+        @include tablet{
+            width:40%;
+        }
+
+    }
+
+    &__home{
+        width:2.5rem;
+        margin-right: 0.5rem;
+        @include buttons;
+    }
+
+    &__logo{
+        width:100%;
+        height:5rem;
+
+        @include tablet{
+            width:100%;
+            height: 5rem;
+        }
+    }
+    &__mybooks{
+        width:2.59rem;
+        margin-right: 0.5rem;
+        @include buttons;
+
+          @include tablet{
+            height:2.5rem;
+            width:2.5rem;
+          }
+    }
+
+    &__more{
+        width:2.7rem;
+        margin-right: 0.5rem;
+        @include buttons;
+          @include tablet{
+            height:2.5rem;
+            width:2.5rem;
+          }
+    }
+    &__buttonsignout{
+        width:7rem;
+        height:2.5rem;
+        @include buttons;
+
+    } 
+}

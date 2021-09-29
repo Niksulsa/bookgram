@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-ExtraBold.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-Black.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-ExtraLight.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-Bold.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-Light.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../../assets/fonts/woff2/NunitoSans-SemiBold.woff2") format("woff2"), url("../../assets/fonts/woff/NunitoSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+.cards {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 65%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: #3d3d6d 0px 7px 29px 0px;
+  border-radius: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .cards {
+    width: 30%;
+    justify-content: flex-start;
+  }
+}
+.cards__outerbox {
+  width: 100%;
+}
+.cards__container {
+  width: 100%;
+}
+.cards__userbox {
+  display: flex;
+  align-content: center;
+}
+.cards__comments {
+  padding-top: 0.5rem;
+  background-color: #f3f3f3;
+  padding-bottom: 0.5rem;
+}
+.cards__image {
+  width: 100%;
+  height: 22rem;
+  margin-top: 1rem;
+}
+.cards__formbox {
+  align-self: flex-end;
+}
+.cards__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards__captionbox {
+  display: flex;
+}
+.cards__caption {
+  margin-left: 0.4rem;
+}
+@media screen and (min-width: 768px) {
+  .cards__caption {
+    margin-left: 0.4rem;
+  }
+}
+.cards__input {
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-radius: 1rem;
+  padding-left: 0.5rem;
+  border: 0.8px solid #dadada;
+}
+.cards__username {
+  display: flex;
+  justify-content: flex-start;
+}
+.cards__name {
+  font-weight: 800;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.cards__commentimg {
+  width: 20%;
+}
+.cards__commentimgbox {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.cards__commentnumb {
+  background-color: purple;
+  border-radius: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+.cards__text {
+  text-align: left;
+}
+.cards__title {
+  font-size: 1rem;
+}
+.cards__headerbox {
+  height: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.cards__userbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards__facebookbox {
+  padding: 0.3rem;
+}
+.cards__avataruserbox {
+  display: flex;
+}
+.cards__button {
+  width: 30%;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cfcbe6;
+  border-radius: 1rem;
+  height: 2rem;
+  border: none;
+}
+
+.heart {
+  text-align: center;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+@media screen and (min-width: 768px) {
+  .articles {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1.5rem;
+  }
+}/*# sourceMappingURL=Cards.css.map */

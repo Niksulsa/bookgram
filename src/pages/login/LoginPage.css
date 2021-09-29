@@ -1,0 +1,47 @@
+.signin {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 50rem;
+}
+.signin__logo {
+  width: 40%;
+}
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  background-color: #08022d;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #cfcbe6;
+}
+.signin__input {
+  margin: 0.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  border: none;
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+.signin__buttonbox {
+  width: 50%;
+  margin-top: 1rem;
+}
+.signin__button {
+  background-color: #cfcbe6;
+  border: none;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.log {
+  padding: 1rem;
+}/*# sourceMappingURL=LoginPage.css.map */

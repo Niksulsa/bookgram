@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap");
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+}
+.header__buttonbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .header__buttonbox {
+    width: 40%;
+  }
+}
+.header__home {
+  width: 2.5rem;
+  margin-right: 0.5rem;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.header__home:active {
+  transform: translateY(4px);
+  background-color: white;
+  color: black;
+}
+.header__logo {
+  width: 100%;
+  height: 5rem;
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    width: 100%;
+    height: 5rem;
+  }
+}
+.header__mybooks {
+  width: 2.59rem;
+  margin-right: 0.5rem;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.header__mybooks:active {
+  transform: translateY(4px);
+  background-color: white;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  .header__mybooks {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+.header__more {
+  width: 2.7rem;
+  margin-right: 0.5rem;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.header__more:active {
+  transform: translateY(4px);
+  background-color: white;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  .header__more {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+.header__buttonsignout {
+  width: 7rem;
+  height: 2.5rem;
+  box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+  background-color: #060221;
+  color: white;
+  border-bottom: 2px solid #595757;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+}
+.header__buttonsignout:active {
+  transform: translateY(4px);
+  background-color: white;
+  color: black;
+}/*# sourceMappingURL=Header.css.map */

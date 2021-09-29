@@ -1,0 +1,56 @@
+@use './variables' as *;
+
+@mixin mobile {
+    @media screen and (min-width: $mobile-breakpoint){
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint){
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint){
+      @content;
+    }
+  }
+  
+
+//for buttons
+
+@mixin buttons {
+    box-shadow: 1px 10px 10px 3px rgba(134, 134, 205, 0.4);
+    background-color: #060221;
+    color:white;
+    border-bottom: 2px solid rgb(89, 87, 87);
+    border:none;
+    border-radius: 1rem;
+    font-weight: 800;
+    font-family: 'Nunito Sans', sans-serif;
+
+    &:active {
+        transform: translateY(4px);
+        background-color: white;
+        color:black
+          }
+
+}
+
+//displaying flex
+
+@mixin display {
+  display: flex;
+  align-items: center;  
+}
+
+//background 
+
+@mixin background{
+  background-repeat: no-repeat;
+  background-position:top;
+  background-blend-mode: lighten;
+  background-size: contain;
+}
