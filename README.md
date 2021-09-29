@@ -8,3 +8,5 @@ This website is for the users who likes reading books and wants to build a commu
 
 Database used:
 Firebase
+
+Perfect view sizes- 1024px-1440px
